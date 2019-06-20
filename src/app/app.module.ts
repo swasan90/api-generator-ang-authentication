@@ -12,6 +12,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout/simple-layout.com
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RegisterComponent } from './auth/register/register.component';
     SimpleLayoutComponent,
     FullLayoutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
