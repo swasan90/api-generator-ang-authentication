@@ -1,11 +1,11 @@
 export class User {
     id:number;
-    firstName: String;
-    lastName: String;
-    email:String;
-    password:String;
-    confirmPassword:String;
-    uuid:String;
+    firstName: string;
+    lastName: string;
+    email:string;
+    password:string;
+    confirmPassword:string;
+    uuid:string;
     createdAt:Date;
     updatedAt:Date;
     status:boolean;

@@ -11,8 +11,8 @@ export class AccountActivateService {
 
   constructor(private httpClient:HttpClient) { }
 
-  public activateUser(tokenStr:String):Observable<ResponseMessage>{
-    const params = new HttpParams().set('token',tokenStr.toString());   
+  public activateUser(tokenStr:string):Observable<ResponseMessage>{
+    const params = new HttpParams().set('token',tokenStr);   
     return this.httpClient.get<any>(environment.api_url+"activate", {params});
   }
 }

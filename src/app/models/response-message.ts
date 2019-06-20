@@ -1,4 +1,4 @@
 export class ResponseMessage {
-    status:String;
-    message:String;
+    status:string;
+    message:string;
 }
