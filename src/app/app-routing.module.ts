@@ -6,6 +6,7 @@ import {Routes,RouterModule } from '@angular/router';
 import { SimpleLayoutComponent } from './layouts/simple-layout/simple-layout.component';
 import {LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AccountActivationComponent } from './auth/account-activation/account-activation.component';
  
 
 export const routes:Routes =[
@@ -36,6 +37,16 @@ export const routes:Routes =[
             }
         ]
     },
+    {
+        path:'activate',
+        component:SimpleLayoutComponent,
+        children:[
+            {
+                path:'',
+                component:AccountActivationComponent
+            }
+        ]
+    }
     
 
 
