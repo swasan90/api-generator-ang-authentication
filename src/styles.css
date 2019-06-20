@@ -15,7 +15,7 @@ height: 100%;
 } 
 
 .card-header h3{
-   color: white;
+   color: whitesmoke;
 }
 
 .input-group-prepend span{
@@ -32,10 +32,10 @@ height: 100%;
 }
 
 .card-body .danger{
-   color:white;
+   color:whitesmoke;
 }
 
 
 a{
-   color:white;
+   color:blanchedalmond;
 }
