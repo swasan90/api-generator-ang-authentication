@@ -13,4 +13,29 @@ height: 100%;
    align-content: center;
    
 } 
- 
+
+.card-header h3{
+   color: white;
+}
+
+.input-group-prepend span{
+   width: 50px;
+   background-color: #FFC312;
+   color: black;
+   border:0 !important;
+}
+
+.login_btn{
+   color: black;
+   background-color: #FFC312;
+   width: 100px;
+}
+
+.card-body .danger{
+   color:white;
+}
+
+
+a{
+   color:white;
+}
