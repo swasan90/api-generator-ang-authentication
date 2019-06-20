@@ -11,6 +11,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { SimpleLayoutComponent } from './layouts/simple-layout/simple-layout.component';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LoginComponent } from './auth/login/login.component';
     AppComponent,
     SimpleLayoutComponent,
     FullLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
