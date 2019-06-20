@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+html,body{ 
+background-size: cover;
+background-repeat: no-repeat;
+background-color:darkgray;
+height: 100%;
+ 
+}
+.container{
+   outline: 1px solid auto;      
+   align-content: center;
+   
+} 
+ 
