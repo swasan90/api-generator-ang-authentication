@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'app/models/user';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,7 +10,10 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor() { }
 
+  user:User;
+
   ngOnInit() {
+    this.user = new User();
   }
 
 }
