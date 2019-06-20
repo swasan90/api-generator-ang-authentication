@@ -13,6 +13,7 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { AccountActivationComponent } from './auth/account-activation/account-activation.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
     FullLayoutComponent,
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    AccountActivationComponent
   ],
   imports: [
     BrowserModule,
