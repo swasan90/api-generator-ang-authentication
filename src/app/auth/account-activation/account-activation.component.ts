@@ -14,15 +14,12 @@ export class AccountActivationComponent implements OnInit {
   constructor(private route:ActivatedRoute,private accountactivationService:AccountActivateService) { }
 
   param1:String;
-  response:ResponseMessage;
   error:any;
   isError:boolean;
-  message:String;
-  isSuccess:boolean;
+  message:String;  
 
   activateAccount(){
-    this.accountactivationService.activateUser(this.param1).subscribe(data=>{   
-      this.isSuccess =false;   
+    this.accountactivationService.activateUser(this.param1).subscribe(data=>{ 
       this.message = data.message; 
     },error=>{
         this.isError=true;
