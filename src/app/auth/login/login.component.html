@@ -1,0 +1,43 @@
+<div class="card shadow-lg p-3 mb-5 rounded">
+    <div class="card-header">
+        <h3>Login</h3>
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="authenticate(loginRequestForm)" #loginRequestForm="ngForm" name="loginRequestForm">
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input type="text" name="email" class="form-control" placeholder="Enter your email id"
+                    id="email" required [(ngModel)]="user.email" #email="ngModel" autocomplete="off">
+            </div>
+            <div *ngIf="email?.errors && (email.dirty || email.touched)">
+                <div [hidden]="!email.errors.required" class="danger">Email is required*</div>
+            </div>            
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" 
+                    required [(ngModel)]="user.password" #password="ngModel">
+            </div>
+            <div *ngIf="password?.errors && (password.dirty || password.touched)">
+                <div [hidden]="!password.errors.required" class="danger">Password is required*</div>
+            </div>            
+            <div class="form-group text-center">
+                <button type="submit" [disabled]="!loginRequestForm.form.valid" class="btn float-right login_btn" >LOGIN</button>
+            </div>
+            <div class = "float-left">
+              <span>
+                  <p>Don't have an account?<a href="">Register here</a></p>
+              </span>              
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showError">
+                {{error}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
