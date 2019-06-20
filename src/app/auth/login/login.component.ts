@@ -8,9 +8,9 @@ import { User } from 'app/models/user';
 })
 export class LoginComponent  {
 
-  user:User;
+  user:User = new User();
 
   constructor() { }
-    
+
 
 }

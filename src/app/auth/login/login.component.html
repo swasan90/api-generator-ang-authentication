@@ -6,7 +6,7 @@
         <form (ngSubmit)="authenticate(loginRequestForm)" #loginRequestForm="ngForm" name="loginRequestForm">
             <div class="input-group form-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                 </div>
                 <input type="text" name="email" class="form-control" placeholder="Enter your email id"
                     id="email" required [(ngModel)]="user.email" #email="ngModel" autocomplete="off">
@@ -27,11 +27,18 @@
             <div class="form-group text-center">
                 <button type="submit" [disabled]="!loginRequestForm.form.valid" class="btn float-right login_btn" >LOGIN</button>
             </div>
-            <div class = "float-left">
-              <span>
-                  <p>Don't have an account?<a href="">Register here</a></p>
-              </span>              
-            </div>
+            <div class = "input-group form-group">                
+                <div class ="col-md-4">
+                    <span class="float-left">
+                        <a [routerLink]="['/auth/register']">Register</a>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <span class="float-right">
+                        <a [routerLink]="['/auth/register']">Forgot your password?</a>
+                    </span> 
+                </div>                      
+            </div>             
             <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showError">
                 {{error}}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
