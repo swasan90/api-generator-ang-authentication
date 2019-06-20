@@ -1,3 +1,4 @@
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { NgModule } from '@angular/core';
 import {Routes,RouterModule } from '@angular/router';
 
@@ -28,9 +29,14 @@ export const routes:Routes =[
             {
                 path:'login',
                 component:LoginComponent
+            },
+            {
+                path:'forgot_password',
+                component:ForgotPasswordComponent
             }
         ]
-    }
+    },
+    
 
 
 
