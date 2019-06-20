@@ -7,12 +7,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
  //Routing Module
- import {AppRoutingModule} from './app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
+import { SimpleLayoutComponent } from './layouts/simple-layout/simple-layout.component';
+import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SimpleLayoutComponent,
+    FullLayoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
