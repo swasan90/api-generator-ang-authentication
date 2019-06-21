@@ -1,4 +1,4 @@
 export class ResponseMessage {
-    status:string;
+    status:boolean;
     message:string;
 }
