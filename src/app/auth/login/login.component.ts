@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private router:Router) { }
 
-  ngOnInit(): void {    
-    if( history.state.message !=null){
+  ngOnInit(): void {         
+    if( history.state.message){      
         this.isForgot = true;
         this.message = history.state.message;        
     }
