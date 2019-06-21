@@ -15,6 +15,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { AccountActivationComponent } from './auth/account-activation/account-activation.component';
 import { ResetComponent } from './auth/reset/reset.component';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ResetComponent } from './auth/reset/reset.component';
     RegisterComponent,
     ForgotPasswordComponent,
     AccountActivationComponent,
-    ResetComponent
+    ResetComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
