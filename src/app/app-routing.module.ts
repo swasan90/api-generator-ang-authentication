@@ -7,6 +7,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout/simple-layout.com
 import {LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AccountActivationComponent } from './auth/account-activation/account-activation.component';
+import { ResetComponent } from './auth/reset/reset.component';
  
 
 export const routes:Routes =[
@@ -38,19 +39,19 @@ export const routes:Routes =[
         ]
     },
     {
-        path:'activate',
+        path:'',
         component:SimpleLayoutComponent,
         children:[
             {
-                path:'',
+                path:'activate',
                 component:AccountActivationComponent
+            },
+            {
+                path:'reset',
+                component:ResetComponent
             }
         ]
-    }
-    
-
-
-
+    } 
 ];
 
 @NgModule({
