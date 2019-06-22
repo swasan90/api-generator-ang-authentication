@@ -1,21 +1,22 @@
 <div class="card shadow-lg p-3 mb-5 rounded">
     <div class="card-header">
-        <h6>{{message}}</h6>        
+        <h6>{{message}}</h6>
     </div>
-  <div class="card-body">     
-      <p *ngIf="isError">Cannot activate your account as the token is expired.Try activating with valid token.Or register with another email id</p>    
-      <p *ngIf="!isError">Account activated.Click on the below link to login with your credentials.</p>    
-      <div class = "input-group form-group">                
-          <div class ="col-md-4" *ngIf="isError">
-              <span class="float-left">
-                  <a [routerLink]="['/auth/register']">Register</a>
-              </span>
-          </div>
-          <div class="col-md-8" *ngIf="!isError">
-              <span class="float-left">
-                  <a [routerLink]="['/auth/login']">Login</a>
-              </span> 
-          </div>                      
-      </div>   
-  </div>
+    <div class="card-body">
+        <p *ngIf="isError">Cannot activate your account as the token is expired.Try activating with valid token.Or
+            register with another email id</p>
+        <p *ngIf="!isError">Account activated.Click on the below link to login with your credentials.</p>
+        <div class="input-group form-group">
+            <div class="col-md-4" *ngIf="isError">
+                <span class="float-left">
+                    <a [routerLink]="['/auth/register']">Register</a>
+                </span>
+            </div>
+            <div class="col-md-8" *ngIf="!isError">
+                <span class="float-left">
+                    <a [routerLink]="['/auth/login']">Login</a>
+                </span>
+            </div>
+        </div>
+    </div>
 </div>
