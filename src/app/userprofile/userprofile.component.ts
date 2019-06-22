@@ -1,3 +1,6 @@
+/**
+ * @author Swathy Santhoshkumar
+ */
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/models/user';
 
@@ -8,11 +11,11 @@ import { User } from 'app/models/user';
 })
 export class UserprofileComponent implements OnInit {
 
-  user:User;
+  user: User;
   constructor() { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("currentUser"));    
+    this.user = JSON.parse(localStorage.getItem("currentUser"));
   }
 
 }

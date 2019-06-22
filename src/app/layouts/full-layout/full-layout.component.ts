@@ -1,3 +1,6 @@
+/**
+ * @author Swathy Santhoshkumar
+ */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './full-layout.component.html',
   styleUrls: ['./full-layout.component.css']
 })
+
 export class FullLayoutComponent implements OnInit {
 
   constructor() { }
