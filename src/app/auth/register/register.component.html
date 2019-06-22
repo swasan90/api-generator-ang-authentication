@@ -13,61 +13,63 @@
             </div>
             <div *ngIf="firstName?.errors && (firstName.dirty || firstName.touched)">
                 <div [hidden]="!firstName.errors.required" class="danger">First Name is required*</div>
-            </div>  
+            </div>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input type="text" name="lastName" class="form-control" placeholder="Enter your last name"
-                    id="lastName" required [(ngModel)]="user.lastName" #lastName="ngModel" autocomplete="off">
+                <input type="text" name="lastName" class="form-control" placeholder="Enter your last name" id="lastName"
+                    required [(ngModel)]="user.lastName" #lastName="ngModel" autocomplete="off">
             </div>
             <div *ngIf="lastName?.errors && (lastName.dirty || lastName.touched)">
                 <div [hidden]="!lastName.errors.required" class="danger">Last Name is required*</div>
-            </div>  
+            </div>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                 </div>
-                <input type="text" name="email" class="form-control" placeholder="Enter your email id"
-                    id="email" required [(ngModel)]="user.email" #email="ngModel" autocomplete="off">
+                <input type="text" name="email" class="form-control" placeholder="Enter your email id" id="email"
+                    required [(ngModel)]="user.email" #email="ngModel" autocomplete="off">
             </div>
             <div *ngIf="email?.errors && (email.dirty || email.touched)">
                 <div [hidden]="!email.errors.required" class="danger">Email is required*</div>
-            </div>            
+            </div>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" 
-                    required [(ngModel)]="user.password" #password="ngModel">
+                <input type="password" name="password" id="password" class="form-control"
+                    placeholder="Enter your password" required [(ngModel)]="user.password" #password="ngModel">
             </div>
             <div *ngIf="password?.errors && (password.dirty || password.touched)">
                 <div [hidden]="!password.errors.required" class="danger">Password is required*</div>
-            </div>   
+            </div>
             <div class="input-group form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" placeholder="Enter your password again" 
-                    required [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel">
+                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"
+                    placeholder="Enter your password again" required [(ngModel)]="user.confirmPassword"
+                    #confirmPassword="ngModel">
             </div>
             <div *ngIf="confirmPassword?.errors && (confirmPassword.dirty || confirmPassword.touched)">
                 <div [hidden]="!confirmPassword.errors.required" class="danger">Confirm Password is required*</div>
-            </div>         
-            <div class="form-group text-center">
-                <button type="submit" [disabled]="!registerRequestForm.form.valid" class="btn float-right login_btn" >REGISTER</button>
             </div>
-            <div class = "float-left">
-              <span>
-                  <a [routerLink]="['/auth/login']">Login</a>
-              </span>              
+            <div class="form-group text-center">
+                <button type="submit" [disabled]="!registerRequestForm.form.valid"
+                    class="btn float-right login_btn">REGISTER</button>
+            </div>
+            <div class="float-left">
+                <span>
+                    <a [routerLink]="['/auth/login']">Login</a>
+                </span>
             </div>
             <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="isSuccess">
                 {{message}}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>            
+            </div>
             <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="showError">
                 {{error}}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
