@@ -1,3 +1,6 @@
+/**
+ * @author Swathy Santhoshkumar
+ */
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ResetPasswordService } from './reset-password.service';
@@ -12,6 +15,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./reset-password.component.css'],
   providers: [ResetPasswordService]
 })
+
+/**
+ * Class to implement reset password component methods.
+ */
 export class ResetPasswordComponent implements OnInit {
 
   tokenParam: string;
@@ -22,7 +29,10 @@ export class ResetPasswordComponent implements OnInit {
   isError: boolean;
   error: string;
   constructor(private resetPasswordService: ResetPasswordService, private route: ActivatedRoute, private router: Router) { }
-
+  /**
+   * Function to implement password reset that calls the service method.
+   * @param resetPasswordRequestForm 
+   */
   resetPassword(resetPasswordRequestForm: NgForm) {
     let resetPwdObj: any = {};
     resetPwdObj.password = this.user.password;
@@ -41,7 +51,9 @@ export class ResetPasswordComponent implements OnInit {
     });
   }
 
-
+  /**
+   * Things to do on loading.
+   */
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.tokenParam = params['token'];
