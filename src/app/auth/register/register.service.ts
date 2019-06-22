@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from 'app/models/user';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
+import { ResponseMessage } from 'app/models/response-message';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class RegisterService {
    * Function to implement register user method.
    * @param userObj 
    */
-  public registerUser(userObj: User): Observable<User> {
-    return this.httpClient.post<User>(environment.api_url + "register", userObj);
+  public registerUser(userObj: User): Observable<ResponseMessage> {
+    return this.httpClient.post<ResponseMessage>(environment.api_url + "register", userObj);
   }
 }

@@ -18,9 +18,9 @@ import { NgForm } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   constructor(private registerService: RegisterService) { }
-  error: String;
+  error: string;
   user: User;
-  showError: boolean = false;
+  isError: boolean = false;
   message: String;
   isSuccess: boolean = false;
   /**
@@ -37,17 +37,9 @@ export class RegisterComponent implements OnInit {
     this.registerService.registerUser(userObj).subscribe(data => {
       this.isSuccess = true;
       this.message = data["message"];
-    }, error => {
-      this.showError = true;
-      this.error = "";
-      if (error.error["errors"]) {
-        let errorObj = error.error["errors"];
-        for (let obj of errorObj) {
-          this.error += obj.defaultMessage + " \n";
-        }
-      } else {
-        this.error = error.error.message;
-      }
+    }, err => {
+      this.isError = true;
+      this.error =err;      
     });
   }
 
