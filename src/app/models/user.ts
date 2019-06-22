@@ -10,4 +10,5 @@ export class User {
     updatedAt:Date;
     status:boolean;
     enabled:boolean;
+    token:string;
 }
