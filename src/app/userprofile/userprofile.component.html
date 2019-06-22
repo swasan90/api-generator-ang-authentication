@@ -1,0 +1,28 @@
+<h4>My Profile</h4>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <th>First Name</th>
+        <td>{{user.given_name}}</td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td>{{user.family_name}}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{user.sub}}</td>
+      </tr>
+      <tr>
+        <th>Is Account verified</th>
+        <td>{{user.email_verified}}</td>
+      </tr>
+      <tr>
+        <th>Is Active</th>
+        <td>{{user.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
