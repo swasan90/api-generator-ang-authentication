@@ -5,7 +5,8 @@
     margin-bottom: auto;
     width: 400px;
     background-color:#47748b;   
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;  
+    justify-content: center;
 }
 
  

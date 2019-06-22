@@ -2,15 +2,12 @@
 
 
 html,body{ 
-background-size: cover;
-background-repeat: no-repeat;
-background-color:darkgray;
-height: 100%;
- 
+background-color: whitesmoke; 
 }
 .container{
    outline: 1px solid auto;      
    align-content: center;
+   display:flexbox;
    
 } 
 
