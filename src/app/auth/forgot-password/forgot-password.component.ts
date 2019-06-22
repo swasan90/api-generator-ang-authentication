@@ -1,3 +1,6 @@
+/**
+ * @author Swathy Santhoshkumar
+ */
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/models/user';
 import { ForgotPasswordService } from './forgot-password.service';
@@ -10,6 +13,10 @@ import { Router, NavigationExtras } from '@angular/router';
   styleUrls: ['./forgot-password.component.css'],
   providers: [ForgotPasswordService]
 })
+
+/**
+ * Class to implement forgot password component methods
+ */
 export class ForgotPasswordComponent implements OnInit {
 
   constructor(private forgotPasswordService:ForgotPasswordService,private router:Router) { }
@@ -19,6 +26,10 @@ export class ForgotPasswordComponent implements OnInit {
   isError:boolean;
   error:string;
 
+  /**
+   * Function to trigger email to the user when user forgots password.
+   * @param forgotPasswordRequestForm 
+   */
   forgotPassword(forgotPasswordRequestForm:NgForm){
     let userObj:any ={};
     userObj.email = this.user.email;
@@ -37,6 +48,9 @@ export class ForgotPasswordComponent implements OnInit {
     });
   }
 
+  /**
+   * Initiazling user object on loading this component.
+   */
   ngOnInit() {
     this.user = new User();
   }
