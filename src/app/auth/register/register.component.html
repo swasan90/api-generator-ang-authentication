@@ -29,7 +29,7 @@
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                 </div>
                 <input type="text" name="email" class="form-control" placeholder="Enter your email id" id="email"
-                    required [(ngModel)]="user.email" #email="ngModel" autocomplete="off">
+                   email required [(ngModel)]="user.email" #email="ngModel" autocomplete="off">
             </div>
             <div *ngIf="email?.errors && (email.dirty || email.touched)">
                 <div [hidden]="!email.errors.required" class="danger">Email is required*</div>
