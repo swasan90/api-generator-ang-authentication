@@ -20,8 +20,8 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(catchError(err => {
       let error = "";
       if (err.status == 401) {
-        this.authService.logout();
-        location.reload(true);
+        //this.authService.logout();
+        error = err.error.message;
       } else if (err.status == 403) {
         error = "Invalid credentials.Please provide valid credentials";
       } else {
