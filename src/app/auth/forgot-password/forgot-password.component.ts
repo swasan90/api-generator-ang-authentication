@@ -35,7 +35,7 @@ export class ForgotPasswordComponent implements OnInit {
     userObj.email = this.user.email;
     this.forgotPasswordService.sendEmail(userObj).subscribe(data=>{
       this.message = data.message;
-      
+      console.log(this.message);
       const navigationExtras:NavigationExtras ={
         state:{
           message:this.message
@@ -43,8 +43,9 @@ export class ForgotPasswordComponent implements OnInit {
       };
       this.router.navigate(['/auth/login'],navigationExtras);
     },error=>{
-       this.isError = true;
-       this.error = error.error.message;
+       this.isError = true;       
+       this.error = error;
+       forgotPasswordRequestForm.reset();
     });
   }
 
