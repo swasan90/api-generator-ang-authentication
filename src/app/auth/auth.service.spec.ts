@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 import { stringify } from '@angular/core/src/util';
 
 
-fdescribe('AuthService', () => {
+describe('AuthService', () => {
   let authService: AuthService;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
@@ -31,6 +31,11 @@ fdescribe('AuthService', () => {
     //Mocking local storage on set item.
     spyOn(localStorage, 'setItem').and.callFake((key: string, value: string): string => {
       return store[key] = <string>value;
+    });
+
+    //Mocking local storage on set item.
+    spyOn(localStorage, 'removeItem').and.callFake((key: string): void => {
+      delete store[key];
     });
 
     //Configuring test bed
@@ -98,7 +103,7 @@ fdescribe('AuthService', () => {
     let loginResponse: User = new User();
     authService.login(requestObj).subscribe(resp => {
       loginResponse = resp;
-    });
+    }, fail);
 
     //Mocking Http requests with httpTestingController and expects to return response with authorization headers. 
     const req = httpTestingController.expectOne({ url: "http://localhost:8080/login" }).flush(stubUser, { headers: { 'Authorization': token } });
@@ -111,6 +116,56 @@ fdescribe('AuthService', () => {
 
     //Verifying if there is no pending requeste open.
     httpTestingController.verify();
+  });
+
+  /**
+   * Function to test if login method throws error when the user is unauthorized
+   */
+  it("#login should throws error when user is unauthorized", () => {
+    //error response
+    const data = "Invalid credentials";
+
+    //Creating request payload object     
+    let requestObj: any = {};
+
+    //Creating token and stubbing jwt helper to return stubbed object.
+    let token = null;
+
+    //Calling AuthService login function to return response    
+    authService.login(requestObj).subscribe(
+      resp => fail("Invalid credentials"),
+      (error: HttpErrorResponse) => {
+        expect(error.error).toEqual(data);
+        expect(error.status).toEqual(401);
+        expect(error.statusText).toEqual("Unauthorized");
+      });
+
+    //Mocking Http requests with httpTestingController and expects to return response with authorization headers. 
+    const req = httpTestingController.expectOne({ url: "http://localhost:8080/login" }).flush(data, { status: 401, statusText: 'Unauthorized' });
+
+
+    //Verifying if there is no pending requeste open.
+    httpTestingController.verify();
+
+
+  });
+
+  /**
+   * Function to test if the local storage variables gets removed.
+   */
+  it('#logout should logout the user and clears the localstorage', () => {
+    //Assigning local storage variables for testing to be null
+    localStorage.setItem("currentUser", null);
+    localStorage.setItem("token", null);
+
+    //asserting local storage variables to be null
+    expect(localStorage.getItem("currentUser")).toBe(null);
+    expect(localStorage.getItem("token")).toBe(null);
+
+    //asserting local storage variables to be removed.
+    expect(localStorage.removeItem("currentUser")).toBeUndefined();
+    expect(localStorage.removeItem("token")).toBeUndefined();
+
   });
 
   afterEach(() => {
