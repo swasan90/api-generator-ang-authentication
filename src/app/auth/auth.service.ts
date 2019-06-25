@@ -32,7 +32,7 @@ export class AuthService {
   /**
    * Function to return the user from localstorage.
    */
-    getUser() {   
+  getUser() {
     if (localStorage.getItem("currentUser")) {
       return JSON.parse(localStorage.getItem("currentUser"));
     }
@@ -47,16 +47,16 @@ export class AuthService {
    * Function to implement login functionality.
    * @param requestPayload 
    */
-  login(requestPayload: any) {     
+  login(requestPayload: any) {
     return this.httpClient.post<any>(environment.api_url + "login", requestPayload, { observe: 'response' }).pipe(map(resp => {
-      let token = resp.headers.get('Authorization').substring(7);             
+      let token = resp.headers.get('Authorization').substring(7);
       if (token != null) {
-        localStorage.setItem('token', JSON.stringify(token)); 
+        localStorage.setItem('token', JSON.stringify(token));
         localStorage.setItem('currentUser', JSON.stringify(this.jwtHelper.decodeToken(token)));
         this.currentUserSubject.next(this.getUser());
-      }     
+      }
       return this.getUser();
-    }), catchError(error => {       
+    }), catchError(error => {
       return throwError(error);
     }));
   }
