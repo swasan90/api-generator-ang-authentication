@@ -8,6 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { map } from 'rxjs/operators';
 import { stringify } from '@angular/core/src/util';
+import { BehaviorSubject } from 'rxjs';
 
 
 describe('AuthService', () => {
@@ -165,6 +166,21 @@ describe('AuthService', () => {
     //asserting local storage variables to be removed.
     expect(localStorage.removeItem("currentUser")).toBeUndefined();
     expect(localStorage.removeItem("token")).toBeUndefined();
+
+  });
+
+  it("#get currentUserValue should return user", () => {
+
+    //Creating stub user
+    const user = new User();
+    user.firstName = "Jim";
+    user.lastName = "Carrey";
+    user.email = "jim.carrey@example.com";
+
+    const stubUser = new BehaviorSubject<User>(user);
+
+    authService.currentUserSubject = stubUser;
+    expect(authService.currentUserValue).toEqual(user);
 
   });
 
