@@ -19,7 +19,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
  */
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<User>;
+  public currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
 
@@ -39,10 +39,11 @@ export class AuthService {
     return null;
   }
 
-  public get currentUserValue(): User {
+  public get currentUserValue(): User {            
     return this.currentUserSubject.value;
   }
 
+   
   /**
    * Function to implement login functionality.
    * @param requestPayload 
