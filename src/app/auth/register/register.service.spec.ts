@@ -9,7 +9,7 @@ import { ResponseMessage } from 'app/models/response-message';
 import { Error } from 'app/models/error';
 import { Errors } from 'app/models/errors';
 
-fdescribe('RegisterService', () => {
+describe('RegisterService', () => {
   let registerService: RegisterService;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
