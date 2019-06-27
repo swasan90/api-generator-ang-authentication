@@ -53,10 +53,9 @@ fdescribe('AccountActivateService', () => {
 
   });
 
-  afterEach(() => {
-    httpTestingController.verify();
-  });
-
+  /**
+   * Function to test activate user returns error when there is invalid token.
+   */
   it('#activate user should return error when there is no token or invalid token', () => {
     //error response
     const data = "Invalid token";
