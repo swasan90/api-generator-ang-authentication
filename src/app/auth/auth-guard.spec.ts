@@ -8,7 +8,7 @@ import { TestBed } from '@angular/core/testing';
 import { User } from 'app/models/user';
 import { of } from 'rxjs';
 
-fdescribe('AuthGuard', () => {
+describe('AuthGuard', () => {
   let authGuard:AuthGuard;
   let routerSpy: jasmine.SpyObj<Router>;
   let authSpy:jasmine.SpyObj<AuthService>;
