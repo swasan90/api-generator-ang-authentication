@@ -7,7 +7,7 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { environment } from 'environments/environment';
 import { User } from 'app/models/user';
 
-fdescribe('ForgotPasswordService', () => {
+describe('ForgotPasswordService', () => {
   let forgotPasswordService: ForgotPasswordService;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
