@@ -1,7 +1,8 @@
 import { Errors } from './errors';
 
 export class Error {
-    errorType:string;
-    errors:Errors[];
+    errorType?:string;
+    errors?:Errors[];
     error?:Errors;
+    status?:boolean;
 }
