@@ -75,7 +75,7 @@ describe('AccountActivateService', () => {
 
     //mocking http call
     const req = httpTestingController.expectOne({ url: environment.api_url + "activate?token=" })
-      .flush(data, { status: 401, statusText: 'Unauthorized' });;
+      .flush(data, { status: 401, statusText: 'Unauthorized' });
 
     //Verifying if there is no pending requeste open.
     httpTestingController.verify();
