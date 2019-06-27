@@ -13,7 +13,16 @@ describe('RegisterService', () => {
   let registerService: RegisterService;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
+  let requestPayload: User;
   beforeEach(() => {
+    //Creating request payload   
+    this.requestPayload.firstName = "Swathy";
+    this.requestPayload.lastName = "Santhosh";
+    this.requestPayload.email = "swathy.s@example.com";
+    this.requestPayload.password = "password";
+    this.requestPayload.confirmPassword = "password";
+
+
     registerService = new RegisterService(httpClient);
     TestBed.configureTestingModule({
       imports: [
@@ -39,16 +48,8 @@ describe('RegisterService', () => {
     //creating variable to store response
     let response: ResponseMessage = new ResponseMessage();
 
-    //Creating request payload
-    let requestPayload: User = new User();
-    requestPayload.firstName = "Swathy";
-    requestPayload.lastName = "Santhosh";
-    requestPayload.email = "swathy.s@example.com";
-    requestPayload.password = "password";
-    requestPayload.confirmPassword = "password";
-
     //Calling register user method on register user.
-    registerService.registerUser(requestPayload).subscribe(resp => {
+    registerService.registerUser(this.requestPayload).subscribe(resp => {
       response = resp;
       expect(response.status).toEqual(responseMessage.status);
       expect(response.message).toEqual(responseMessage.message);
@@ -73,19 +74,10 @@ describe('RegisterService', () => {
     //creating variable to store response
     let response: ResponseMessage = new ResponseMessage();
 
-    //Creating request payload
-    let requestPayload: User = new User();
-    requestPayload.firstName = "Swathy";
-    requestPayload.lastName = "Santhosh";
-    requestPayload.email = "swathy.s@example.com";
-    requestPayload.password = "password";
-    requestPayload.confirmPassword = "password";
-
     //Calling register user method on register user.
-    registerService.registerUser(requestPayload).subscribe(
+    registerService.registerUser(this.requestPayload).subscribe(
       resp => fail('Email id already exists'),
       (error: HttpErrorResponse) => {
-        console.log(error);
         expect(error.error.message).toEqual(responseMessage.message);
         expect(error.error.status).toEqual(false);
         expect(error.status).toEqual(400);
