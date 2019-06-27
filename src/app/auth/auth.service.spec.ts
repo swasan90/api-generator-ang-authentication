@@ -16,8 +16,15 @@ describe('AuthService', () => {
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
   let routerSpy: jasmine.SpyObj<Router>;
+  let user:User;
   let jwtHelperSpy: jasmine.SpyObj<JwtHelperService>;
   beforeEach(() => {
+    //Creating stub user
+    this.user = new User();
+    this.user.firstName = "Jim";
+    this.user.lastName = "Carrey";
+    this.user.email = "jim.carrey@example.com";
+
     var store = {};
     // Creating spy objects    
     const routeSpy = jasmine.createSpyObj('Router', ['navigate']);
@@ -62,43 +69,31 @@ describe('AuthService', () => {
   /**
    * Function to test the get user method which returns the current user object from the local storage
    */
-  it('#getUser should return current user from local storage', () => {
-    //Creating stub user object
-    const stubUser = new User();
-    stubUser.firstName = "Jim";
-    stubUser.lastName = "Carrey";
-    stubUser.email = "jim.carrey@example.com";
-    localStorage.setItem('currentUser', JSON.stringify(stubUser));
+  it('#getUser should return current user from local storage', () => {    
+    localStorage.setItem('currentUser', JSON.stringify(this.user));
     expect(authService.getUser()).toEqual(JSON.parse(localStorage.getItem("currentUser")));
   });
 
   /**
    * Function to test the get user method which returns the current user object from the local storage
    */
-  it('#getUser should return null from local storage', () => {
-    const stubValue = new User();
+  it('#getUser should return null from local storage', () => {    
     localStorage.setItem('currentUser', null);
     expect(authService.getUser()).toEqual(JSON.parse(localStorage.getItem("currentUser")));
     expect(authService.getUser()).toBe(null);
     expect(localStorage.getItem("currentUser")).toBe(null);
   });
 
-  it('#login should authenticate user and return the user object', () => {
-    //Creating stub user object
-    const stubUser: User = new User();
-    stubUser.firstName = "Jim";
-    stubUser.lastName = "Carrey";
-    stubUser.email = "jim.carrey@example.com";
-
+  it('#login should authenticate user and return the user object', () => {    
     //Creating request payload object     
     let requestObj: any = {};
-    requestObj.email = stubUser.email;
+    requestObj.email = this.user.email;
     requestObj.password = "password";
 
 
     //Creating token and stubbing jwt helper to return stubbed object.
     let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-    jwtHelperSpy.decodeToken.and.returnValue(stubUser);
+    jwtHelperSpy.decodeToken.and.returnValue(this.user);
 
     //Calling AuthService login function to return response
     let loginResponse: User = new User();
@@ -107,12 +102,12 @@ describe('AuthService', () => {
     }, fail);
 
     //Mocking Http requests with httpTestingController and expects to return response with authorization headers. 
-    const req = httpTestingController.expectOne({ url: "http://localhost:8080/login" }).flush(stubUser, { headers: { 'Authorization': token } });
+    const req = httpTestingController.expectOne({ url: "http://localhost:8080/login" }).flush(this.user, { headers: { 'Authorization': token } });
 
     //Asserting response.
-    expect(loginResponse.firstName).toEqual(stubUser.firstName);
-    expect(loginResponse.lastName).toEqual(stubUser.lastName);
-    expect(loginResponse.email).toEqual(stubUser.email);
+    expect(loginResponse.firstName).toEqual(this.user.firstName);
+    expect(loginResponse.lastName).toEqual(this.user.lastName);
+    expect(loginResponse.email).toEqual(this.user.email);
     expect(loginResponse.status).toBeUndefined();
 
     //Verifying if there is no pending requeste open.
@@ -169,18 +164,12 @@ describe('AuthService', () => {
 
   });
 
-  it("#get currentUserValue should return user", () => {
+  it("#get currentUserValue should return user", () => { 
 
-    //Creating stub user
-    const user = new User();
-    user.firstName = "Jim";
-    user.lastName = "Carrey";
-    user.email = "jim.carrey@example.com";
-
-    const stubUser = new BehaviorSubject<User>(user);
+    const stubUser = new BehaviorSubject<User>(this.user);
 
     authService.currentUserSubject = stubUser;
-    expect(authService.currentUserValue).toEqual(user);
+    expect(authService.currentUserValue).toEqual(this.user);
 
   });
 
