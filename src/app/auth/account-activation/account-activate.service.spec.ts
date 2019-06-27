@@ -6,7 +6,7 @@ import { AccountActivateService } from './account-activate.service';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { environment } from 'environments/environment';
 
-fdescribe('AccountActivateService', () => {
+describe('AccountActivateService', () => {
   let accountActivateService: AccountActivateService;
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
