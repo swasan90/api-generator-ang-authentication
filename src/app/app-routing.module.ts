@@ -40,23 +40,24 @@ export const routes: Routes = [
             {
                 path: 'forgot_password',
                 component: ForgotPasswordComponent
-            }
+            } ,
+                  
         ]
-    },
+    },      
     {
-        path: '',
+        path: 'password',
         component: SimpleLayoutComponent,
         children: [
             {
-                path: 'activate?token=',
-                component: AccountActivationComponent
-            },
-            {
-                path: 'reset?token=',
+                path: 'reset',
                 component: ResetPasswordComponent
-            }
+            } ,
+            {
+                path: 'activate',
+                component: AccountActivationComponent
+            }           
         ]
-    },
+    },     
     {
         path: 'home',
         component: FullLayoutComponent,
