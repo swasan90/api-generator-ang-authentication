@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
   authenticate(loginRequestForm: NgForm) {
     this.isError = false;
     this.authService.login(this.user).subscribe(currentUser => {
+      console.log(currentUser);
       this.router.navigate(['/home/user_profile']);
     },
       error => {
