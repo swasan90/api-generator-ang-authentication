@@ -1,4 +1,4 @@
-import { UserprofileComponent } from './userprofile/userprofile.component';
+ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { AuthGuard } from './auth/auth-guard';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
@@ -12,9 +12,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { AccountActivationComponent } from './auth/account-activation/account-activation.component';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { LogOutComponent } from './auth/logout.component';
-
-
-
+ 
 export const routes: Routes = [
 
     {
@@ -75,12 +73,13 @@ export const routes: Routes = [
                 component: LogOutComponent
             }
         ]
-    }
+    }   
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    
 })
 export class AppRoutingModule { }
 
