@@ -23,6 +23,7 @@ import { ErrorInterceptor } from './errorHandlers/error.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { LogOutComponent } from './auth/logout.component';
+ 
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -40,6 +41,7 @@ export function tokenGetter() {
     ResetPasswordComponent,
     UserprofileComponent,
     LogOutComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['http://localhost:4200/'],
+        whitelistedDomains: ['http://localhost:8081/',"http://localhost:4210/"],
       }
     })
   ],
