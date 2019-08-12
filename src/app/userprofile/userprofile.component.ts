@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 /**
  * @author Swathy Santhoshkumar
  */
 import { Component, OnInit } from '@angular/core';
 import { User } from 'app/models/user';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-userprofile',
@@ -15,7 +17,7 @@ export class UserprofileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("currentUser"));
+    this.user = JSON.parse(localStorage.getItem("currentUser"));    
   }
 
 }
