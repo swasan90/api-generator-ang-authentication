@@ -39,10 +39,9 @@ export class LoginComponent implements OnInit {
     this.isError = false;
     this.authService.login(this.user).subscribe(currentUser => {       
       let encrypted_uuid = CryptoJS.AES.encrypt(currentUser.uuid, environment.secret_key_uuid).toString();  
-      localStorage.setItem("encrypted_uuid",encrypted_uuid);
-     // console.log( CryptoJS.AES.decrypt(decodeURIComponent(encrypted_uuid), environment.secret_key_uuid).toString(CryptoJS.enc.Utf8));   
+      localStorage.setItem("encrypted_uuid",encrypted_uuid);    
       const externalRedirect = environment.api_client_url+"api/dashboard/"+encodeURIComponent(encrypted_uuid);
-      window.location.href= externalRedirect;
+      window.location.href= externalRedirect;    
     },
       error => {
         loginRequestForm.controls['password'].reset();
