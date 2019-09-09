@@ -30,7 +30,6 @@ If the token is expired or if the user experience 401 error when accessing the a
 
  Upon successfull login, the application redirects to another frontend angular application which spawns the main application (Api generator). 
 
-
 ## Forgot Password
 
 If the user forgots his/her password, the application prompts for the registered email id. The application would send a token link to the registered email id for resetting his/her password. By clicking the token link, the application would allows the user to reset the password. On resetting password, the user can use new credentials.
