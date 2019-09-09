@@ -56,15 +56,6 @@ The application uses Angular Material for rendering data on the material compone
         npm install
 4. The above step 3 installs the required dependencies to run this application.
 
-## IP Address of the Docker Engine (!!!!Important for Connecting the Client)
-a. Make note of docker machine by running this below command in the docker terminal window:
-$ docker-machine ip
-b. Update the following file with the IP retrieved from docker
-    File to be updated: {APP_ROOT_DIR}/environments/environment.ts
-    Property to be updated: "api_url".
-     After updating, your api_url value should look like this: "http://192.168.99.100/api/",
-     the ip address may differs based on your container
-
 5. Once the above steps completes, run the following command to start application.
     $ ng serve --port 4210
     This should run the application on http://localhost:4210 or whichever port it says on the terminal.
