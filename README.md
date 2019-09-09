@@ -67,9 +67,9 @@ b. Update the following file with the IP retrieved from docker
      the ip address may differs based on your container
 
 5. Once the above steps completes, run the following command to start application.
-    $ ng serve
-    This should run the application on http://localhost:4200 or whichever port it says on the terminal.
-    Open the link in browser, you should be able to view the login page that is redirected to http://localhost:4200/auth
+    $ ng serve --port 4210
+    This should run the application on http://localhost:4210 or whichever port it says on the terminal.
+    Open the link in browser, you should be able to view the login page that is redirected to http://localhost:4210/auth
 
 This is all that's required to start and run the application.
 
