@@ -1,4 +1,4 @@
-# API GENERATOR - Authentication Application- Micro Front end
+# API GENERATOR - Authentication Application
 
 This is an entrypoint of an api generator application. This repository contains the code for an authentication. This application is developed using Angular framework. 
 
