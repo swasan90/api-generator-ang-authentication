@@ -1,27 +1,71 @@
-# Authentication Module
+# API GENERATOR - Authentication Application
 
-This project is an entry point for API generator application. 
+This is an entrypoint of an api generator application. This repository contains the code for an authentication. This application is developed using Angular framework. 
 
-## Development server
+## Prequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The below software are required to run the Angular application
 
-## Code scaffolding
+- Node 
+- Angular CLI
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Architecture
 
-## Build
+This application is built to authenticate users for the registered users and create account on api generator application. It is developed using Angular 7 with RxJs and Typescript. This application uses token based authentication to authenticate user to the backend application.
+This application is a responsive single page application which communicates the API using RESTAPI layer. This application communicates to the Springboot microservice application which is the backend application.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## For New Users
 
-## Running unit tests
+For the new users, create a new user account by clicking the Register button. Provide the valid details. Upon registering your information, the application would send a token link to your registered email id with token. The user has to activate their account by clicking the link within 24 hours. Upon activation, the user will be able to login with their credentials. The user cannot login unless the account is activated.  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Note: Email id is unique. 
 
-## Running end-to-end tests
+## For Registered Users
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Note: The registered user will be able to login only if they activated their account. 
 
-## Further help
+When the User logins, the system would call the login endpoint first to get a JWT Token which should then be passed as an authorization header with a Bearer string so that the authenticated endpoints are accessible. The token is set to 15 minutes (ttl).  After 15 minutes, if the user is not active, the token will be expired. If the user is still active after 15 minutes, the front end application requests the backend server to generate a new token for the user and the new token will be attached to the subsequent request headers.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+If the token is expired or if the user experience 401 error when accessing the application, the user will be logged out automatically. This is achieved by implementing HttpInterceptor to capture 401 error.The token is attached to the each request on Authorization Header with string "Bearer" followed by token. 
+
+ Upon successfull login, the application redirects to another frontend angular application which spawns the main application (Api generator). 
+
+## Forgot Password
+
+If the user forgots his/her password, the application prompts for the registered email id. The application would send a token link to the registered email id for resetting his/her password. By clicking the token link, the application would allows the user to reset the password. On resetting password, the user can use new credentials.
+
+ ## UI Library
+
+The application uses Angular Material for rendering data on the material components and bootstrap4 for designing stylesheets. The application is covered with Behavioral driven development using Jasmine and Karma. The application uses template driven forms to render view.
+
+## List of Technology stack Used
+- Node                   
+- Angular CLI        
+- Angular 7
+- Angular Material
+- Bootstrap 4
+- Sendgrid (to send emails)
+
+## Setup Instruction
+ 
+1. Install node (This application need node 8.x or 10.x)
+
+2. Install angular/cli 
+    npm install -g @angular/cli
+3. Navigate to the project directory.
+        npm install
+4. The above step 3 installs the required dependencies to run this application.
+
+5. Once the above steps completes, run the following command to start application.
+    $ ng serve --port 4210
+    This should run the application on http://localhost:4210 or whichever port it says on the terminal.
+    Open the link in browser, you should be able to view the login page that is redirected to http://localhost:4210/auth
+
+This is all that's required to start and run the application.
+
+## Application Start up Workflow
+
+1. Once the application is up, enter the email id and password if registered else create new user account.
+2. The application takes you to the api generator which is spawned as a separate angular application.
+3. The application is active until the user logs off (or) the token is active.
+ 
