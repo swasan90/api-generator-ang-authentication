@@ -5,7 +5,7 @@ html,body{
 background-color: whitesmoke; 
 }
 .container{
-   outline: 1px solid auto;      
+   /* outline: 1px solid auto;       */
    align-content: center;
    display:flexbox;
    
