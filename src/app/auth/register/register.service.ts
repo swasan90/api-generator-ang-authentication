@@ -24,6 +24,7 @@ export class RegisterService {
    * @param userObj 
    */
   public registerUser(userObj: User): Observable<ResponseMessage> {
+    console.log(environment.api_url);
     return this.httpClient.post<ResponseMessage>(environment.api_url + "register", userObj);
   }
 }
