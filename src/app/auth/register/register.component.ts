@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'app/models/user';
 import { RegisterService } from './register.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ import { NgForm } from '@angular/forms';
  */
 export class RegisterComponent implements OnInit {
 
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService,private router:Router) { }
   error: string;
   user: User;
   isError: boolean = false;
@@ -37,6 +38,7 @@ export class RegisterComponent implements OnInit {
     this.registerService.registerUser(userObj).subscribe(data => {
       this.isSuccess = true;
       this.message = data["message"];
+      this.router.navigate(["/auth/login"]);
     }, err => {
       this.isError = true;
       this.error =err;  
